@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <title>Form</title>
+</head>
+<body>
+
+    Enter your name
+    <input type = "text"  name = "" id = "name">
+    <br/>
+    Age 
+    <input type = "text"  name = "" id = "age">
+    <br>
+    Country
+    <select name = "" id = "country">
+        <option value = " Viet Nam">Viet Nam </option>
+        <option value = " North Korean ">North Korean </option>
+    </select>
+    <br>
+    <input type = "button" value="OK" onclick="Hi()">  
+    <input type = "button" value="Show/Hide" onclick="showHide()">  
+    <br>
+    <div id = "result" style="display: none;">
+        Name: <label id = "lblName"></label>
+        <br>
+        Age: <label id = "lblAge"></label>
+        <br>
+        Country: <label id = "lblCountry"></label>
+
+
+    </div>
+    
+
+    <script>
+        var isShown = false;
+        function showHide()
+        {
+            isShown = !isShown;
+            if(isShown)
+            {
+                document.getElementById("result").style="display:block; border:solid";
+            }
+            else
+            {
+                document.getElementById("result").style="display:none";
+            }
+        }
+
+        function Hi()
+        {   
+            //document.getElementById("result").style="display:block; border:solid";
+
+            $('#result').css({'display': 'block','border': 'solid'});
+            let name = $('#name').val();
+            
+
+            let age = $('#age').val();  
+            
+            if(isNaN(age))
+                {
+                    alert('Age must be a number');
+                    return;
+                }
+            
+            let country = $('#country').val();  
+            
+            $("lblName").text(name);
+            $("lblAge").text(age);
+            $("lblCountry").text(country);
+
+        }
+    </script>
+</body>
+</html>
